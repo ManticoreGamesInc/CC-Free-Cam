@@ -1,31 +1,38 @@
 <div align="center">
 
-# CC-Template-Repository
+# Free Cam
 
-A ... component that does x.
+[![Build Status](https://github.com/ManticoreGamesInc/CC-Free-Cam/workflows/CI/badge.svg)](https://github.com/ManticoreGamesInc/CC-Free-Cam/actions/workflows/ci.yml?query=workflow%3ACI%29)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/ManticoreGamesInc/CC-Free-Cam?style=plastic)
 
-[![Build Status](https://github.com/Core-Team-META/CC-Template-Repository/workflows/CI/badge.svg)](https://github.com/Core-Team-META/CC-Template-Repository/actions/workflows/ci.yml?query=workflow%3ACI%29)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/Core-Team-META/CC-Template-Repository?style=plastic)
-
-![TitleCard](/Screenshots/REPLACE_ME.png)
+![Preview](/Screenshots/Main.png)
 
 </div>
 
+## Finding the Component
+
+This component can be found under the **CoreAcademy** account on Community Content.
+
 ## Overview
 
-Description
+The Free Cam component is useful for taking screen shots/video from a live public game. The component is lightweight, easy to use, and comes with some useful features to make it easy to take captures.
 
-## Setup
+## How to use
 
-Setup
+Add the Free Cam template to your Hierarchy.
 
-## Credits
+The component will attempt to find the default player settings object so there is no setup required on your part. You can manually set the default settings custom property on the template root if needed.
 
-- List
-- of
-- people
+To use the free cam component, you must add yourself to the Free Cam Permissions data table found in Project Content.
 
-## How to use this Template
+The default bindings are:
 
-- Replace every mention of `CC-Template-Repository` with your new repository name.
-- Replace every mention of `REPLACE_ME` with the correct values.
+- R to enabled/disable Free Cam
+- E to show/hide the Free Cam UI when it is enabled.
+- Q to add a bookmark.
+
+There is one custom property on the root of the template.
+
+- DefaultSettings
+
+The player settings that are generally used for the game. This is optional and shouldn't need to be set unless there are issues returning back to player settings when coming out of free cam.
