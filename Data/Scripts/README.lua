@@ -10,6 +10,11 @@
 The Free Cam component is useful for taking screen shots/video from a live public game. The component
 is lightweight, easy to use, and comes with some useful features to make it easy to take captures.
 -----------------------------------------------------------------------------------------------------------------
+====
+NOTE
+====
+
+If the Dependent folders are empty in Project Content under Imported Content for this component, save and reload the project to fix it.
 
 ==========
 How to use
