@@ -25,5 +25,9 @@ Assets {
       VirtualFolderPath: "Free Cam"
       PlatformAssetType: 31
     }
+    Folders {
+      VirtualFolderPath: "Tween"
+      PlatformAssetType: 3
+    }
   }
 }

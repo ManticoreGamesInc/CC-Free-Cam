@@ -30,6 +30,8 @@ The default bindings are:
 - R to enabled/disable Free Cam
 - E to show/hide the Free Cam UI when it is enabled.
 - Q to add a bookmark.
+- 1 Cycle bookmark forward.
+- 2 Cycle bookmark back.
 
 There is one custom property on the root of the template.
 

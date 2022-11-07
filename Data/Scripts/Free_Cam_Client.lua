@@ -112,6 +112,9 @@ local bar_width = 372
 local states = {}
 local ui_states = {}
 
+local bookmarks = {}
+local bookmark_index = 1
+
 local function remap(value, in_min, in_max, out_min, out_max)
 	return (value - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
 end
@@ -299,10 +302,31 @@ local function on_add_bookmark_pressed()
 	local rot = LOCAL_PLAYER:GetWorldRotation()
 	local view_rot = LOCAL_PLAYER:GetLookWorldRotation()
 
+	bookmarks[#bookmarks + 1] = { pos, rot, view_rot }
+
 	entry.pressedEvent:Connect(function()
 		Events.BroadcastToServer("FreeCam.Move", pos, rot)
 		LOCAL_PLAYER:SetLookWorldRotation(view_rot)
 	end)
+end
+
+local function display_bookmark(direction)
+	if(#bookmarks > 0) then
+		bookmark_index = bookmark_index + direction
+
+		if(bookmark_index > #bookmarks) then
+			bookmark_index = 1
+		elseif(bookmark_index < 1) then
+			bookmark_index = #bookmarks
+		end
+
+		local bookmark = bookmarks[bookmark_index]
+
+		if(bookmark ~= nil) then
+			Events.BroadcastToServer("FreeCam.Move", bookmark[1], bookmark[2])
+			LOCAL_PLAYER:SetLookWorldRotation(bookmark[3])
+		end
+	end
 end
 
 local function on_action_pressed(player, action)
@@ -324,6 +348,10 @@ local function on_action_pressed(player, action)
 			end
 		elseif(action == "Add Bookmark") then
 			on_add_bookmark_pressed()
+		elseif(action == "Go Forward") then
+			display_bookmark(1)
+		elseif(action == "Go Back") then
+			display_bookmark(-1)
 		end
 	end
 end
