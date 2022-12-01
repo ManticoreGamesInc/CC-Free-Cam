@@ -33,7 +33,7 @@ function Free_Cam.set_player_settings(default_settings, settings)
 end
 
 function Free_Cam.has_permission(player)
-	if(Object.IsValid(player) and PERMISSIONS[player.name] ~= nil) then
+	if(Object.IsValid(player) and (PERMISSIONS[player.name] ~= nil or Environment.IsSinglePlayerPreview())) then
 		return true
 	end
 
@@ -162,7 +162,7 @@ function Free_Cam.player_joined(player)
 		settings = Free_Cam.DEFAULT_SETTINGS,
 		fly_speed = 0,
 		decel_speed = 0
-		
+
 	}
 end
 
@@ -198,7 +198,7 @@ end
 if(Environment.IsServer()) then
 	Events.ConnectForPlayer("FreeCam.Camera.Lock", Free_Cam.lock_camera)
 	Events.ConnectForPlayer("FreeCam.Camera.Unlock", Free_Cam.unlock_camera)
-	
+
 	Events.ConnectForPlayer("FreeCam.Player.Show", Free_Cam.show_player)
 	Events.ConnectForPlayer("FreeCam.Player.Hide", Free_Cam.hide_player)
 
